@@ -4,7 +4,7 @@ A mobile-first Progressive Web App for tracking daily habits. Built with Next.js
 
 ## Live Demo
 
-[View live](habit-tracker-plum-alpha.vercel.app)
+[View live](https://habit-tracker-plum-alpha.vercel.app/)
 
 ## Setup
 
