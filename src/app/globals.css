@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #fefdd2;
+    --surface: #ffffff;
+    --border: #e8e4a0;
+    --border-strong: #d5ae36;
+    --text: #1a1600;
+    --text-secondary: #6b5e00;
+    --muted: #9e8c2a;
+    --accent: #d5ae36;
+    --accent-dark: #bb9b19;
+    --accent-text: #1a1600;
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --red-border: #fecaca;
+  }
+
+  /* @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1600;
+      --surface: #2a2300;
+      --border: #3d3400;
+      --border-strong: #d5ae36;
+      --text: #fefdd2;
+      --text-secondary: #d5c46a;
+      --muted: #8a7a30;
+      --accent: #d5ae36;
+      --accent-dark: #bb9b19;
+      --accent-text: #1a1600;
+      --green: #4ade80;
+      --green-bg: rgba(74,222,128,0.08);
+      --green-border: rgba(74,222,128,0.25);
+      --red: #f87171;
+      --red-bg: rgba(248,113,113,0.08);
+      --red-border: rgba(248,113,113,0.2);
+    }
+  } */
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+}
+
+@keyframes splashLogo {
+  from { opacity: 0; transform: scale(0.8) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes splashTag {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes checkPop {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.anim-splash-logo { animation: splashLogo 0.7s cubic-bezier(0.22,0.68,0,1.2) both; }
+.anim-splash-tag  { animation: splashTag  0.5s ease 0.35s both; }
+.check-pop        { animation: checkPop   0.3s cubic-bezier(0.22,0.68,0,1.4) both; }
+
+/* Splash floating pills */
+.splash-pill {
+  position: absolute;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: var(--accent);
+  color: var(--accent-text);
+  opacity: 0.22;
+  animation: floatPill linear infinite;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Splash floating circles */
+.splash-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2.5px solid var(--accent);
+  animation: floatCircle ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Bouncing dots */
+.bounce-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: bounceDot 0.7s ease-in-out infinite alternate;
+}
+
+/* Cycling habit label fade */
+.splash-cycle {
+  animation: fadeSwap 0.4s ease both;
+}
+
+@keyframes floatPill {
+  0%   { transform: translateY(0px) rotate(-2deg); }
+  50%  { transform: translateY(-18px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(-2deg); }
+}
+@keyframes floatCircle {
+  from { transform: translateY(0px) scale(1); }
+  to   { transform: translateY(-22px) scale(1.08); }
+}
+@keyframes bounceDot {
+  from { transform: translateY(0); opacity: 0.5; }
+  to   { transform: translateY(-14px); opacity: 1; }
+}
+@keyframes fadeSwap {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Page fade-in */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-fade-in {
+  animation: pageFadeIn 0.4s ease both;
+}
